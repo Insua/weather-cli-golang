@@ -8,46 +8,46 @@ import (
 
 func Icon(weather string) string {
 	if funk.ContainsString([]string{"Cloudy", "Mostly Cloudy", "Dreary (Overcast)"}, weather) {
-		return ""
+		return ""
 	}
 	if weather == "Fog" {
-		return ""
+		return ""
 	}
 	if funk.ContainsString([]string{"Sunny", "Intermittent Clouds", "Mostly Sunny", "Partly Sunny", "Hazy Sunshine", "Hot"}, weather) {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "Snow") {
-		return ""
+		return ""
 	}
 	if weather == "Showers" {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "T-Storms") {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "Rain") {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "Windy") {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "Flurries") {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "Ice") {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "Sleet") {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "Cold") {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "Clear") {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "Moonlight") {
-		return ""
+		return ""
 	}
 	if strings.Contains(weather, "Thunderstorms") {
 		return ""
