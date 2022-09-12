@@ -1,7 +1,6 @@
 package http
 
 import (
-	"fmt"
 	"io"
 	"os"
 	"os/user"
@@ -37,8 +36,6 @@ func getFromCache() []byte {
 	if err != nil {
 		return []byte{}
 	}
-
-	fmt.Println(fi.ModTime())
 
 	if fi.ModTime().Add(time.Hour).Before(time.Now()) {
 		return []byte{}
