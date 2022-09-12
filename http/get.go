@@ -1,6 +1,7 @@
 package http
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"os/user"
@@ -31,6 +32,18 @@ func getFromCache() []byte {
 	if !gfile.Exists(path) {
 		return []byte{}
 	}
+
+	fi, err := os.Stat(path)
+	if err != nil {
+		return []byte{}
+	}
+
+	fmt.Println(fi.ModTime())
+
+	if fi.ModTime().Add(time.Hour).Before(time.Now()) {
+		return []byte{}
+	}
+
 	f, err := os.OpenFile(path, os.O_RDONLY, 0600)
 	defer func() {
 		_ = f.Close()
