@@ -12,8 +12,8 @@ import (
 	"github.com/gogf/gf/frame/g"
 )
 
-func Get(city string) []byte {
-	r, err := g.Client().Timeout(60 * time.Second).Get("https://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=" + city)
+func Get(cityCode string) []byte {
+	r, err := g.Client().Timeout(60 * time.Second).Get("https://m.weathercn.com/current-weather.do?id=" + cityCode)
 	if err != nil {
 		return getFromCache()
 	}

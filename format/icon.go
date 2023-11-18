@@ -13,7 +13,7 @@ func Icon(weather string) string {
 	if weather == "Fog" {
 		return ""
 	}
-	if funk.ContainsString([]string{"Sunny", "Intermittent Clouds", "Mostly Sunny", "Partly Sunny", "Hazy Sunshine", "Hot"}, weather) {
+	if funk.ContainsString([]string{"晴", "Intermittent Clouds", "Mostly Sunny", "Partly Sunny", "Hazy Sunshine", "Hot"}, weather) {
 		return ""
 	}
 	if strings.Contains(weather, "Snow") {
@@ -52,5 +52,5 @@ func Icon(weather string) string {
 	if strings.Contains(weather, "Thunderstorms") {
 		return ""
 	}
-	return ""
+	return weather
 }

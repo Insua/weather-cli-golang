@@ -9,8 +9,6 @@ import (
 	"weather/http"
 	"weather/parse"
 
-	"github.com/gogf/gf/util/gconv"
-
 	"github.com/gogf/gf/os/gcmd"
 )
 
@@ -23,15 +21,14 @@ func main() {
 	db.Init()
 	result := http.Get(arg)
 	current := parse.Parse(result)
-	cs := strings.Split(current, ":")
-	if len(cs) != 3 {
+	cs := strings.Split(current, " ")
+	if len(cs) != 2 {
 		return
 	}
 
-	weather := strings.TrimSpace(cs[1])
-	fullTemp := strings.TrimSpace(cs[2])
+	weather := strings.TrimSpace(cs[0])
+	fullTemp := strings.TrimSpace(cs[1])
 	icon := format.Icon(weather)
 	temp := format.Temp(fullTemp)
-	db.Record(weather, gconv.Uint(strings.Trim(fullTemp, "C")))
 	fmt.Println(icon + " " + temp)
 }
