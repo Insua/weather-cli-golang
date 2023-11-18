@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/gogf/gf/util/gconv"
 	"os"
 	"strings"
 	"weather/db"
@@ -30,5 +31,6 @@ func main() {
 	fullTemp := strings.TrimSpace(cs[1])
 	icon := format.Icon(weather)
 	temp := format.Temp(fullTemp)
+	db.Record(weather, gconv.Uint(strings.Trim(fullTemp, "°C")))
 	fmt.Println(icon + " " + temp)
 }
