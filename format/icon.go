@@ -7,7 +7,7 @@ import (
 )
 
 func Icon(weather string) string {
-	if funk.ContainsString([]string{"Cloudy", "Mostly Cloudy", "Dreary (Overcast)"}, weather) {
+	if funk.ContainsString([]string{"多云", "Mostly Cloudy", "Dreary (Overcast)"}, weather) {
 		return ""
 	}
 	if weather == "Fog" {
