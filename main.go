@@ -22,13 +22,9 @@ func main() {
 	db.Init()
 	result := http.Get(arg)
 	current := parse.Parse(result)
-	cs := strings.Split(current, " ")
-	if len(cs) != 2 {
-		return
-	}
 
-	weather := strings.TrimSpace(cs[0])
-	fullTemp := strings.TrimSpace(cs[1])
+	weather := strings.TrimSpace(current.Weather)
+	fullTemp := strings.TrimSpace(current.Temp)
 	icon := format.Icon(weather)
 	temp := format.Temp(fullTemp)
 	db.Record(weather, gconv.Uint(strings.Trim(fullTemp, "°C")))
