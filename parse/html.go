@@ -32,7 +32,9 @@ func Parse(result []byte) Weather {
 			tr = append(tr, v)
 		}
 	}
-	w.Temp = string(tr) + "°C"
+	if len(tr) > 0 {
+		w.Temp = string(tr) + "°C"
+	}
 
 	return w
 }
