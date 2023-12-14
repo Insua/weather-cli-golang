@@ -27,6 +27,8 @@ func main() {
 	fullTemp := strings.TrimSpace(current.Temp)
 	icon := format.Icon(weather)
 	temp := format.Temp(fullTemp)
-	db.Record(weather, gconv.Uint(strings.Trim(fullTemp, "°C")))
+	if len(weather) > 0 && len(fullTemp) > 0 {
+		db.Record(weather, gconv.Uint(strings.Trim(fullTemp, "°C")))
+	}
 	fmt.Println(icon + " " + temp)
 }
