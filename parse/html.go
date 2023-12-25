@@ -8,6 +8,8 @@ import (
 type Weather struct {
 	Weather string
 	Temp    string
+	Sunrise string
+	Sunset  string
 }
 
 func Parse(result []byte) Weather {
@@ -34,6 +36,15 @@ func Parse(result []byte) Weather {
 	}
 	if len(tr) > 0 {
 		w.Temp = string(tr) + "°C"
+	}
+
+	sun := doc.Find(".sun_moon p").First()
+	if sun != nil {
+		riseSet := sun.Find("span")
+		if riseSet.Length() == 2 {
+			w.Sunrise = riseSet.First().Text()
+			w.Sunset = riseSet.Last().Text()
+		}
 	}
 
 	return w

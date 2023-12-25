@@ -24,8 +24,10 @@ func main() {
 	current := parse.Parse(result)
 
 	weather := strings.TrimSpace(current.Weather)
+	sunrise := strings.TrimSpace(current.Sunrise)
+	sunset := strings.TrimSpace(current.Sunset)
 	fullTemp := strings.TrimSpace(current.Temp)
-	icon := format.Icon(weather)
+	icon := format.Icon(weather, sunrise, sunset)
 	temp := format.Temp(fullTemp)
 	if len(weather) > 0 && len(fullTemp) > 0 {
 		db.Record(weather, gconv.Uint(strings.Trim(fullTemp, "°C")))
