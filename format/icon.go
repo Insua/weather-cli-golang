@@ -39,6 +39,9 @@ func Icon(weather, sunrise, sunset string) string {
 	if funk.Contains([]string{"小雨"}, weather) {
 		return "󮣷"
 	}
+	if funk.Contains([]string{"中雨"}, weather) {
+		return "󮛽"
+	}
 	if strings.Contains(weather, "Windy") {
 		return ""
 	}
